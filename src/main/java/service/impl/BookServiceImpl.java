@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.CommonService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class BookServiceImpl implements CommonService<Book>
 {
     @Autowired
-    CommonDao<Book> dao;
+    private CommonDao<Book> dao;
 
     public List<Book> getAll()
     {
