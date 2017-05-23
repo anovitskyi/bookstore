@@ -16,7 +16,8 @@ public class HomePageController
     @Autowired
     private CommonService<Book> service;
 
-    private String emptyList = "There is no available books. Sorry :("
+    private String emptyList = "There is no available books. Sorry :(";
+    private String noUnits = "No more books left";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage()
@@ -29,10 +30,17 @@ public class HomePageController
     {
         List<Book> list = service.getAll();
         if (list.isEmpty())
+        {
             model.addAttribute("errorMessage", emptyList);
+            return "notFound";
+        }
         else
+        {
             model.addAttribute("list", list);
+            model.addAttribute("noUnits", noUnits);
+            return "display";
+        }
 
-        return "display";
+
     }
 }
