@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.transaction.Transactional;
 
 @Transactional
-public abstract class DaoImpl<T> implements Dao<T>
+public abstract class DaoImpl<T> implements CommonDao<T>
 {
     @Autowired
     protected SessionFactory session;
@@ -21,8 +21,8 @@ public abstract class DaoImpl<T> implements Dao<T>
         session.getCurrentSession().update(param);
     }
 
-    public void delete(int id)
+    public void delete(T param)
     {
-        session.getCurrentSession().delete(id);
+        session.getCurrentSession().delete(param);
     }
 }

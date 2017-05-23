@@ -2,12 +2,12 @@ package dao;
 
 import java.util.List;
 
-public interface Dao<T>
+public interface CommonDao<T>
 {
     List<T> getAll();
     T get(int id);
 
     void add(T param);
     void update(T param);
-    void delete(int id);
+    void delete(T param);
 }
