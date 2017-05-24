@@ -71,7 +71,7 @@
         <div class="col-lg-6">
             <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
             <br>
-            <a href="/display">
+            <a href="/books">
                 <h2 class="btn btn-lg btn-primary">Show new</h2>
             </a>
         </div><!-- /.col-lg-4 -->
