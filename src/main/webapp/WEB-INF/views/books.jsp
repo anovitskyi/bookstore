@@ -1,10 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/common/header.jspf"%>
 
-<div class="container" style="margin-top: 50px;">
-    <br>
-    <h1>${helloMessage}</h1>
-    <br>
+    <div class="page-header">
+        <h1>${helloMessage}</h1>
+        <br>
+    </div>
     <c:forEach var="book" items="${list}">
         <div class="row" style="height: 150px; margin-top: 5px; background-color: #989697;">
             <div class="col-md-2" style="padding-left: 0px;">

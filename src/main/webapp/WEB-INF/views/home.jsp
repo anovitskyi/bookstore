@@ -1,6 +1,5 @@
 <%@include file="/WEB-INF/views/common/header.jspf"%>
-
-
+</div>
 <!-- Carousel
 ================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -12,7 +11,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+            <img class="first-slide" src="/resources/images/bac1.png" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
@@ -22,7 +21,7 @@
             </div>
         </div>
         <div class="item">
-            <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+            <img class="second-slide" src="/resources/images/bac2.png" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Another example headline.</h1>
@@ -32,7 +31,7 @@
             </div>
         </div>
         <div class="item">
-            <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+            <img class="third-slide" src="/resources/images/bac3.png" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>One more for good measure.</h1>
@@ -52,29 +51,26 @@
     </a>
 </div><!-- /.carousel -->
 
+<div class="container" style="margin-top: 50px;">
 
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 
 <div class="container marketing">
-
+    <input type="hidden" id="foo" value="hidden">
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-6">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <br>
             <a href="/search">
-                <h2 class="btn btn-lg btn-primary">Go searching</h2>
+                <img class="img-circle" src="/resources/images/search.png" alt="Generic placeholder image" width="140" height="140">
             </a>
-        </div><!-- /.col-lg-4 -->
+        </div><!-- /.col-lg-6-->
         <div class="col-lg-6">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <br>
             <a href="/books">
-                <h2 class="btn btn-lg btn-primary">Show new</h2>
+                <img class="img-circle" src="/resources/images/list.png" alt="Generic placeholder image" width="140" height="140">
             </a>
-        </div><!-- /.col-lg-4 -->
+        </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
 
 <%@include file="/WEB-INF/views/common/footer.jspf"%>
