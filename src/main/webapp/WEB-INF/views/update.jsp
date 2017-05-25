@@ -5,8 +5,8 @@
 </div>
 <div class="container">
     <div class="col-md-5">
-        <form:form commandName="book" action="/admin/books/${book.id}" method="post">
-           <%@include file="/WEB-INF/views/common/book.jspf"%>
+        <form:form commandName="book" action="/admin/books/${book.id}" method="post" enctype="multipart/form-data">
+            <%@include file="/WEB-INF/views/common/book.jspf"%>
         </form:form>
     </div>
 </div>

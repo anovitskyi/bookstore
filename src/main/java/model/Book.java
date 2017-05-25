@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.util.Locale;
 
 @Entity
 @Table(name = "books")
@@ -43,7 +44,7 @@ public class Book
     private int unitsInStock;
 
     @Transient
-    MultipartFile img;
+    private MultipartFile img;
 
     public String getAutor()
     {
@@ -57,7 +58,8 @@ public class Book
 
     public void setAutor(String autor)
     {
-        this.autor = autor.trim();
+        String str = autor.trim();
+        this.autor = str.substring(0,1).toUpperCase() + str.substring(1);
     }
 
     public String getName()
@@ -67,7 +69,8 @@ public class Book
 
     public void setName(String name)
     {
-        this.name = name.trim();
+        String str = name.trim();
+        this.name = str.substring(0,1).toUpperCase() + str.substring(1);
     }
 
     public Genre getGenre()
@@ -87,7 +90,13 @@ public class Book
 
     public void setDesc(String desc)
     {
-        this.desc = desc.trim();
+        if (desc != null && desc.length() > 2)
+        {
+            String str = desc.trim();
+            this.desc = str.substring(0,1).toUpperCase() + str.substring(1);
+        }
+        else
+            this.desc = desc;
     }
 
     public double getPrice()

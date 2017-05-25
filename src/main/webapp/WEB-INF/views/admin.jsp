@@ -29,7 +29,7 @@
         </thead>
         <tbody>
             <c:forEach var="book" items="${list}">
-                <tr>
+                <tr style="${book.unitsInStock == 0? 'color:#ff0000;' : ''}">
                     <td>${book.id}</td>
                     <td>${book.name}</td>
                     <td>${book.autor}</td>

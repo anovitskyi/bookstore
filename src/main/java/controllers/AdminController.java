@@ -58,7 +58,6 @@ public class AdminController
         {
             img.transferTo(new java.io.File(path));
         }
-
         return "redirect:/admin/";
     }
 
@@ -66,7 +65,7 @@ public class AdminController
     public String updateGet(@PathVariable int id, Model model)
     {
         Book book = service.get(id);
-        if (book == null || book.getUnitsInStock() < 1)
+        if (book == null)
         {
             model.addAttribute("message", "There is no available books. Sorry :(");
             return "redirection";
@@ -77,7 +76,7 @@ public class AdminController
     }
 
     @RequestMapping(value = "/books/{id}", method = RequestMethod.POST)
-    public String update(@PathVariable int id, @Valid Book book, BindingResult result, Model model)
+    public String update(@PathVariable int id, @Valid Book book, BindingResult result, Model model, HttpServletRequest request) throws IOException
     {
         if (result.hasErrors())
         {
@@ -93,6 +92,19 @@ public class AdminController
         book1.setGenre(book.getGenre());
         book1.setPrice(book.getPrice());
 
+
+        MultipartFile img = book1.getImg();
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        String path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\books\\" + book1.getId() + ".png").toString();
+        if (img != null && !img.isEmpty())
+        {
+            java.io.File file = new java.io.File(path);
+            if (file.exists())
+                file.delete();
+            img.transferTo(file);
+        }
+
+
         service.update(book1);
 
         return "redirect:/admin/";
@@ -100,15 +112,20 @@ public class AdminController
 
 
     @RequestMapping(value = "/books/{id}", method = RequestMethod.GET)
-    public String delete(@PathVariable int id, Model model)
+    public String delete(@PathVariable int id, Model model, HttpServletRequest request)
     {
         Book book = service.get(id);
-        if (book == null || book.getUnitsInStock() < 1)
+        if (book == null)
         {
             model.addAttribute("message", "There is no available books. Sorry :(");
             return "redirection";
         }
         service.delete(book);
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        String path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\books\\" + book.getId() + ".png").toString();
+        java.io.File file = new java.io.File(path);
+        if (file.exists())
+            file.delete();
         return "redirect:/admin/";
     }
 }

@@ -8,7 +8,7 @@
     <c:forEach var="book" items="${list}">
         <div class="row" style="height: 150px; margin-top: 5px; background-color: #989697;">
             <div class="col-md-2" style="padding-left: 0px;">
-                <img src="/resources/books/${book.id}" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="150" height="150"/>
+                <img src="/resources/books/${book.id}.png" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="150" height="150"/>
             </div>
             <div class="col-md-4">
                 <h3>${book.name}</h3>

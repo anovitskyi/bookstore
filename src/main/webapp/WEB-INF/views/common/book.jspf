@@ -36,7 +36,7 @@
 
 <fieldset class="form-group">
     <form:label path="img">Image:</form:label>
-    <form:input cssClass="form-control" path="img" type="file"/>
+    <form:input cssClass="form:input-large" path="img" type="file"/>
     <form:errors path="img" cssClass="text-danger"/>
 </fieldset>
 

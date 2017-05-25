@@ -9,7 +9,7 @@
 <div class="row">
    <form:form action="/books/${book.id}" method="post">
        <div class="col-md-3">
-           <img src="/resources/books/${book.id}" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="250" height="250"/>
+           <img src="/resources/books/${book.id}.png" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="250" height="250"/>
        </div>
        <div class="col-md-8">
           <ul style="list-style-type: none;">
