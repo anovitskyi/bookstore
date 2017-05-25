@@ -5,9 +5,16 @@
     <h1>Admin page:</h1>
 </div>
 <div class="container">
-    <a href="/admin/add" class="btn btn-primary">Add book</a>
+    <div class="btn-group">
+        <div class="col-md-5">
+            <a href="/admin/add" class="btn btn-primary">Add book</a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="/books/" class="btn btn-primary">Show all</a>
+        </div>
+    </div>
     <br>
-    <a href="/books/" class="btn btn-primary">Show all</a>
     <table class="table table-striped">
         <thead>
             <th>ID:</th>

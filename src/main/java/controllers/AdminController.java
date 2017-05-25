@@ -9,9 +9,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import service.CommonService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 @Controller
@@ -33,13 +37,12 @@ public class AdminController
     public String addForm(Model model)
     {
         model.addAttribute("genres", Arrays.asList(Genre.values()));
-        model.addAttribute("message", "Add new book: ");
         model.addAttribute(new Book());
         return "add";
     }
 
     @RequestMapping(value = "/books", method = RequestMethod.POST)
-    public String add(@Valid Book book, BindingResult result, Model model)
+    public String add(@Valid Book book, BindingResult result, Model model, HttpServletRequest request) throws IOException
     {
         if (result.hasErrors())
         {
@@ -47,15 +50,29 @@ public class AdminController
             return "add";
         }
         service.add(book);
+
+        MultipartFile img = book.getImg();
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        String path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\books\\" + book.getId() + ".png").toString();
+        if (img != null && !img.isEmpty())
+        {
+            img.transferTo(new java.io.File(path));
+        }
+
         return "redirect:/admin/";
     }
 
     @RequestMapping(value = "/books/update/{id}", method = RequestMethod.GET)
     public String updateGet(@PathVariable int id, Model model)
     {
+        Book book = service.get(id);
+        if (book == null || book.getUnitsInStock() < 1)
+        {
+            model.addAttribute("message", "There is no available books. Sorry :(");
+            return "redirection";
+        }
         model.addAttribute("genres", Arrays.asList(Genre.values()));
-        model.addAttribute("book", service.get(id));
-        model.addAttribute("message", "Update book: ");
+        model.addAttribute("book", book);
         return "update";
     }
 

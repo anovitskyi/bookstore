@@ -3,6 +3,7 @@ package model;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -41,10 +42,8 @@ public class Book
     @Min(0)
     private int unitsInStock;
 
-    @Column
-    @NotBlank
-    @Length(min = 3, max = 50)
-    private String img;
+    @Transient
+    MultipartFile img;
 
     public String getAutor()
     {
@@ -111,12 +110,12 @@ public class Book
         this.unitsInStock = unitsInStock;
     }
 
-    public String getImg()
+    public MultipartFile getImg()
     {
         return img;
     }
 
-    public void setImg(String img)
+    public void setImg(MultipartFile img)
     {
         this.img = img;
     }
@@ -132,7 +131,6 @@ public class Book
                 ", desc='" + desc + '\'' +
                 ", price=" + price +
                 ", unitsInStock=" + unitsInStock +
-                ", img='" + img + '\'' +
                 '}';
     }
 }

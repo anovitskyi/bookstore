@@ -3,13 +3,13 @@
 <%@include file="/WEB-INF/views/common/header.jspf"%>
 
 <div class="page-header">
-    <h1>Please confirm your purchase: </h1>
+    <h1>Confirm your purchase: </h1>
 </div>
 
 <div class="row">
    <form:form action="/books/${book.id}" method="post">
        <div class="col-md-3">
-           <img src="/resources/books/${book.img}" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="250" height="250"/>
+           <img src="/resources/books/${book.id}" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="250" height="250"/>
        </div>
        <div class="col-md-8">
           <ul style="list-style-type: none;">
@@ -26,8 +26,9 @@
                       </c:otherwise>
                   </c:choose>
               </li>
+              <li><h3>&#36;${book.price}</h3></li>
               <li> <input type="submit" value="Confirm" class="btn btn-success">
-                  <a href="/books/" class="btn btn-primary">Return to all books</a>
+                  <a href="/books/" class="btn btn-default">Go to all books</a>
               </li>
           </ul>
        </div>
