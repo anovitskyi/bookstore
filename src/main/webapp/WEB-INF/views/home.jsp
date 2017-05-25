@@ -51,8 +51,6 @@
     </a>
 </div><!-- /.carousel -->
 
-<div class="container" style="margin-top: 50px;">
-
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -63,12 +61,12 @@
     <div class="row">
         <div class="col-lg-6">
             <a href="/search">
-                <img class="img-circle" src="/resources/images/search.png" alt="Generic placeholder image" width="140" height="140">
+                <img class="img-circle" src="/resources/images/search.png" alt="Go searching" width="150" height="150">
             </a>
         </div><!-- /.col-lg-6-->
         <div class="col-lg-6">
-            <a href="/books">
-                <img class="img-circle" src="/resources/images/list.png" alt="Generic placeholder image" width="140" height="140">
+            <a href="/books/">
+                <img class="img-circle" src="/resources/images/list.png" alt="Show all books" width="150" height="150">
             </a>
         </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->

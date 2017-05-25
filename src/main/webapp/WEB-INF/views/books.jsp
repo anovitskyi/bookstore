@@ -13,7 +13,7 @@
             <div class="col-md-4">
                 <h3>${book.name}</h3>
                 <h4>${book.autor}</h4>
-                <a href="/genres?g=${book.genre}"><h4>#${book.genre}</h4></a>
+                <a href="/books/genres/${book.genre}"><h4>#${book.genre}</h4></a>
             </div>
             <div class="col-md-4">
                 <c:choose>

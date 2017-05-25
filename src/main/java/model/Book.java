@@ -17,10 +17,12 @@ public class Book
     private Integer id;
 
     @Column
+    @NotBlank
     @Length(min = 3, max = 35)
     private String autor;
 
     @Column
+    @NotBlank
     @Length(min = 3, max = 25)
     private String name;
 
@@ -40,6 +42,7 @@ public class Book
     private int unitsInStock;
 
     @Column
+    @NotBlank
     @Length(min = 3, max = 50)
     private String img;
 
@@ -55,7 +58,7 @@ public class Book
 
     public void setAutor(String autor)
     {
-        this.autor = autor;
+        this.autor = autor.trim();
     }
 
     public String getName()
@@ -65,7 +68,7 @@ public class Book
 
     public void setName(String name)
     {
-        this.name = name;
+        this.name = name.trim();
     }
 
     public Genre getGenre()
@@ -85,7 +88,7 @@ public class Book
 
     public void setDesc(String desc)
     {
-        this.desc = desc;
+        this.desc = desc.trim();
     }
 
     public double getPrice()
@@ -116,5 +119,20 @@ public class Book
     public void setImg(String img)
     {
         this.img = img;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Book{" +
+                "id=" + id +
+                ", autor='" + autor + '\'' +
+                ", name='" + name + '\'' +
+                ", genre=" + genre +
+                ", desc='" + desc + '\'' +
+                ", price=" + price +
+                ", unitsInStock=" + unitsInStock +
+                ", img='" + img + '\'' +
+                '}';
     }
 }

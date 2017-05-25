@@ -9,5 +9,6 @@ public enum Genre
     Horror,
     Romance,
     Fantasy,
-    Mythology
+    Mythology,
+    Other
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.CommonService;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -17,7 +19,9 @@ public class BookServiceImpl implements CommonService<Book>
 
     public List<Book> getAll()
     {
-        return dao.getAll();
+        List<Book> list = dao.getAll();
+        Collections.reverse(list);
+        return list;
     }
 
     public Book get(int id)
