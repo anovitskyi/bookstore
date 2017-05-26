@@ -56,6 +56,11 @@ public class Book
         return id;
     }
 
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+
     public void setAutor(String autor)
     {
         String str = autor.trim();

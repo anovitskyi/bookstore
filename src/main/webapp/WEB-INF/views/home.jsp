@@ -14,9 +14,8 @@
             <img class="first-slide" src="/resources/images/bac1.png" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    <h1>Welcome to my bookstore</h1>
+                    <p>Best store to purchase any book</p>
                 </div>
             </div>
         </div>
@@ -24,9 +23,8 @@
             <img class="second-slide" src="/resources/images/bac2.png" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    <h1>Big variety</h1>
+                    <p>Here you can find different books in different colors</p>
                 </div>
             </div>
         </div>
@@ -34,9 +32,8 @@
             <img class="third-slide" src="/resources/images/bac3.png" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    <h1>Very simple way to order</h1>
+                    <p>Ordering textbooks and other materials is easy. Be sure to make a hard copy (printout) of your course material from your course Syllabus and take it with you when you go to the bookstore so you know for sure what you need to order.</p>
                 </div>
             </div>
         </div>

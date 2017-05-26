@@ -35,4 +35,15 @@ public class HomePageController
         return "contact";
     }
 
+    @RequestMapping("/admin")
+    public String redirectToAdmin()
+    {
+        return "redirect:/admin/";
+    }
+
+    @RequestMapping("/books")
+    public String redirectToBooks()
+    {
+        return "redirect:/books/";
+    }
 }

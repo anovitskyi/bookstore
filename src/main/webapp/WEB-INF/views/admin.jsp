@@ -5,7 +5,7 @@
     <h1>Admin page:</h1>
 </div>
 <div class="container">
-    <div class="btn-group">
+    <div class="btn-group" style="float: right;">
         <div class="col-md-5">
             <a href="/admin/add" class="btn btn-primary">Add book</a>
         </div>

@@ -29,6 +29,9 @@
                 <li class="${pageContext.request.requestURI eq '/WEB-INF/views/about.jsp' ? 'active' : ''}" ><a href="/about">About</a></li>
                 <li class="${pageContext.request.requestURI eq '/WEB-INF/views/contact.jsp' ? 'active' : ''}" ><a href="/contact">Contact</a></li>
             </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li class="active"><a href="/admin">Manage</a> </li>
+            </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
