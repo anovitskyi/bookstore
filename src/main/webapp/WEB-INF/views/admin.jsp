@@ -7,7 +7,7 @@
 <div class="container">
     <div class="btn-group" style="float: right;">
         <div class="col-md-5">
-            <a href="/admin/add" class="btn btn-primary">Add book</a>
+            <a href="/admin/books/add" class="btn btn-primary">Add book</a>
         </div>
 
         <div class="col-md-4">

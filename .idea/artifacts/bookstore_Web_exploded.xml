@@ -45,6 +45,16 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.2.2.RELEASE" />
         </element>
       </element>
     </root>

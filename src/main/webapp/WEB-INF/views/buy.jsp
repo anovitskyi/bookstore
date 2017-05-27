@@ -32,7 +32,6 @@
               </li>
           </ul>
        </div>
-
    </form:form>
 </div>
 <%@include file="/WEB-INF/views/common/footer.jspf"%>

@@ -39,7 +39,6 @@
     <form:input cssClass="form:input-large" path="img" type="file"/>
     <form:errors path="img" cssClass="text-danger"/>
 </fieldset>
-
 <div class="col-md-5" style="float:right;">
     <input type="submit" value="Submit" class="btn btn-success" >
     <a href="/admin/" style="float:right;" class="btn btn-default">Cancel</a>

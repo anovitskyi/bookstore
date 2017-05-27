@@ -33,7 +33,7 @@ public class AdminController
         return "admin";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/books/add", method = RequestMethod.GET)
     public String addForm(Model model)
     {
         model.addAttribute("genres", Arrays.asList(Genre.values()));
