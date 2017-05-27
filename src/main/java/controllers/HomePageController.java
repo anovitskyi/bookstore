@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import service.CommonService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -45,5 +46,13 @@ public class HomePageController
     public String redirectToBooks()
     {
         return "redirect:/books/";
+    }
+
+    @RequestMapping("/search")
+    public String search(Model model)
+    {
+        model.addAttribute("genres", Arrays.asList(Genre.values()));
+        model.addAttribute(new Book());
+        return "search";
     }
 }

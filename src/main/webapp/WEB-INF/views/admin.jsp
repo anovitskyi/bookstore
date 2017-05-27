@@ -19,7 +19,7 @@
         <thead>
             <th>ID:</th>
             <th>Name:</th>
-            <th>Autor:</th>
+            <th>Author:</th>
             <th>Genre:</th>
             <th>Price:</th>
             <th>Units:</th>

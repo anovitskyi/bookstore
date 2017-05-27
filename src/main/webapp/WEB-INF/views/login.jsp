@@ -9,16 +9,15 @@
 
 <div class="container">
     <div class="col-md-4">
-        <form:form commandName="user" name="loginForm" action="/j_spring_security_check" method="post">
+        <form:form name="loginForm" action="/j_spring_security_check" method="post">
 
             <fieldset class="form-group">
-                <form:label path="username" for="username" >Username: </form:label>
-                <form:input path="username" class="form-control" type="text" id="username" name="username"/>
+                <label for="username" >Username: </label>
+                <input class="form-control" type="text" id="username" name="username"/>
             </fieldset>
             <fieldset class="form-group">
-                <form:label path="password" for="password">Password: </form:label>
-                <form:input path="password" class="form-control" type="password" id="password" name="password"/>
-                <form:errors path="username" cssClass="text-danger"/>
+                <label for="password">Password: </label>
+                <input class="form-control" type="password" id="password" name="password"/>
             </fieldset>
 
             <p class="text-danger">${error}</p>

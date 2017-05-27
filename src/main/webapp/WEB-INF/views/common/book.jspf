@@ -5,7 +5,7 @@
 </fieldset>
 
 <fieldset class="form-group">
-    <form:label path="autor">Autor:</form:label>
+    <form:label path="autor">Author:</form:label>
     <form:input cssClass="form-control" path="autor" type="text" required="required"/>
     <form:errors path="autor" cssClass="text-danger"/>
 </fieldset>
