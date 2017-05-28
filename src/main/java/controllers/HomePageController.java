@@ -70,35 +70,35 @@ public class HomePageController
         List<Book> list = service.getAll();
         for (Book b : list)
         {
-            if (b.getName().equals(book.getName()))
+            if (book.getName() == null)
             {
-                if (b.getAutor().equals(book.getAutor()))
+                if (book.getAutor() == null)
                 {
-                    if (b.getGenre() == book.getGenre() || book.getGenre() == null)
+                    if (b.getGenre().equals(book.getGenre()) || book.getGenre() == null)
                     {
                         res.add(b);
                     }
                 }
-                else if (book.getAutor() == null)
+                else if (b.getAutor().toLowerCase().contains(book.getAutor().toLowerCase()))
                 {
-                    if (b.getGenre().equals(book.getGenre()) || book.getGenre() == null)
+                    if (b.getGenre() == book.getGenre() || book.getGenre() == null)
                     {
                         res.add(b);
                     }
                 }
             }
-            else if (book.getName() == null)
+            else if (b.getName().toLowerCase().contains(book.getName().toLowerCase()))
             {
-                if (b.getAutor().equals(book.getAutor()))
+                if (book.getAutor() == null)
                 {
-                    if (b.getGenre() == book.getGenre() || book.getGenre() == null)
+                    if (b.getGenre().equals(book.getGenre()) || book.getGenre() == null)
                     {
                         res.add(b);
                     }
                 }
-                else if (book.getAutor() == null)
+                else if (b.getAutor().toLowerCase().contains(book.getAutor().toLowerCase()))
                 {
-                    if (b.getGenre().equals(book.getGenre()) || book.getGenre() == null)
+                    if (b.getGenre() == book.getGenre() || book.getGenre() == null)
                     {
                         res.add(b);
                     }
