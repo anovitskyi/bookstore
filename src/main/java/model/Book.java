@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import java.util.Locale;
 
 @Entity
 @Table(name = "books")
@@ -64,7 +63,10 @@ public class Book
     public void setAutor(String autor)
     {
         String str = autor.trim().toLowerCase();
-        this.autor = str.substring(0,1).toUpperCase() + str.substring(1);
+        if (!str.isEmpty())
+            this.autor = str.substring(0,1).toUpperCase() + str.substring(1);
+        else
+            this.autor = "";
     }
 
     public String getName()
@@ -75,7 +77,10 @@ public class Book
     public void setName(String name)
     {
         String str = name.trim();
-        this.name = str.substring(0,1).toUpperCase() + str.substring(1);
+        if (!str.isEmpty())
+            this.name = str.substring(0,1).toUpperCase() + str.substring(1);
+        else
+            this.name = "";
     }
 
     public Genre getGenre()
@@ -95,13 +100,11 @@ public class Book
 
     public void setDesc(String desc)
     {
-        if (desc != null && desc.length() > 2)
-        {
-            String str = desc.trim();
+        String str = desc.trim();
+        if (!str.isEmpty())
             this.desc = str.substring(0,1).toUpperCase() + str.substring(1);
-        }
         else
-            this.desc = desc;
+            this.desc = "";
     }
 
     public double getPrice()
@@ -134,17 +137,4 @@ public class Book
         this.img = img;
     }
 
-    @Override
-    public String toString()
-    {
-        return "Book{" +
-                "id=" + id +
-                ", autor='" + autor + '\'' +
-                ", name='" + name + '\'' +
-                ", genre=" + genre +
-                ", desc='" + desc + '\'' +
-                ", price=" + price +
-                ", unitsInStock=" + unitsInStock +
-                '}';
-    }
 }

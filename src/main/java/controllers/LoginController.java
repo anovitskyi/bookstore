@@ -2,16 +2,18 @@ package controllers;
 
 
 import model.Consumer;
-import model.User;
+import model.Countries;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Arrays;
 
 @Controller
 public class LoginController
@@ -49,7 +51,21 @@ public class LoginController
         if (request.getRemoteUser() != null)
             return "redirect:/";
         model.addAttribute(new Consumer());
+        model.addAttribute("countries", Arrays.asList(Countries.values()));
         return "singup";
+    }
+
+    @RequestMapping(value = "/singup", method = RequestMethod.POST)
+    public String singup(@Valid Consumer consumer, BindingResult result, @ModelAttribute("password") String password, Model model)
+    {
+        if (result.hasErrors())
+        {
+            model.addAttribute("countries", Arrays.asList(Countries.values()));
+            model.addAttribute(consumer);
+            return "singup";
+        }
+        //contactService.add(consumer);
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/denied", method = RequestMethod.GET)
