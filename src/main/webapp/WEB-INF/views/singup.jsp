@@ -55,7 +55,7 @@
 
             <fieldset class="form-group">
                 <label>Confirm password:</label>
-                <input id="password" name="password" class="form-control" type="password" required="required"/>
+                <input id="pass" name="pass" class="form-control" type="password" required="required"/>
                 <errors cssClass="text-warning"/>
             </fieldset>
 

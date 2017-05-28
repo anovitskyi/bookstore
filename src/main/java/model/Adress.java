@@ -34,7 +34,6 @@ public class Adress
     private String street;
 
     @Column
-    @NotBlank
     @Min(0)
     private Integer number;
 
@@ -52,7 +51,7 @@ public class Adress
     {
         String str = country.trim();
         if (!str.isEmpty())
-            this.country = country;
+            this.country = str.substring(0,1).toUpperCase() + str.substring(1);
         else
             this.country = "";
     }
@@ -66,7 +65,7 @@ public class Adress
     {
         String str = city.trim();
         if (!str.isEmpty())
-            this.city = city;
+            this.city = str.substring(0,1).toUpperCase() + str.substring(1);
         else
             this.city = "";
     }
@@ -80,7 +79,7 @@ public class Adress
     {
         String str = street.trim();
         if (!str.isEmpty())
-            this.street = street;
+            this.street = str.substring(0,1).toUpperCase() + str.substring(1);
         else
             this.street = "";
 
@@ -105,8 +104,21 @@ public class Adress
     {
         String str = postCode.trim();
         if (!str.isEmpty())
-            this.postCode = postCode;
+            this.postCode = str.substring(0,1).toUpperCase() + str.substring(1);
         else
             this.postCode = "";
+    }
+
+
+    @Override
+    public String toString()
+    {
+        return "Adress{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", number=" + number +
+                ", postCode='" + postCode + '\'' +
+                '}';
     }
 }

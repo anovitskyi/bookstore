@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 @Entity
@@ -43,6 +44,7 @@ public class Consumer
     @Length(min = 3, max = 30)
     private String password;
 
+    @Valid
     @Column
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "adress_id")

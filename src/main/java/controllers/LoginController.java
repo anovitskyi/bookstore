@@ -1,6 +1,7 @@
 package controllers;
 
 
+import model.Adress;
 import model.Consumer;
 import model.Countries;
 import org.springframework.stereotype.Controller;
@@ -56,12 +57,23 @@ public class LoginController
     }
 
     @RequestMapping(value = "/singup", method = RequestMethod.POST)
-    public String singup(@Valid Consumer consumer, BindingResult result, @ModelAttribute("password") String password, Model model)
+    public String singup(@Valid Consumer consumer, BindingResult result, @ModelAttribute("pass") String password, Model model)
     {
         if (result.hasErrors())
         {
             model.addAttribute("countries", Arrays.asList(Countries.values()));
+            consumer.setPassword("");
+            consumer.setUsername("");
             model.addAttribute(consumer);
+            return "singup";
+        }
+        if (!password.equals(consumer.getPassword()))
+        {
+            model.addAttribute("countries", Arrays.asList(Countries.values()));
+            consumer.setPassword("");
+            consumer.setUsername("");
+            model.addAttribute(consumer);
+            result.rejectValue("password", "error.object","Different passwords provided");
             return "singup";
         }
         //contactService.add(consumer);
