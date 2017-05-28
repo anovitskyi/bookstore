@@ -108,7 +108,7 @@ public class HomePageController
 
         if (res.isEmpty())
         {
-            model.addAttribute("message", "There is no available books. Sorry :(");
+            model.addAttribute("message", "There is no books that match your expectations. Sorry :(");
             return "redirection";
         }
 

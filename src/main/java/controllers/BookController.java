@@ -74,7 +74,7 @@ public class BookController
         Book book = service.get(id);
         if (book == null || book.getUnitsInStock() < 1)
         {
-            model.addAttribute("message", "There is no available books. Sorry :(");
+            model.addAttribute("message", "You cannot buy this book. Sorry :(");
             return "redirection";
         }
         model.addAttribute(book);
