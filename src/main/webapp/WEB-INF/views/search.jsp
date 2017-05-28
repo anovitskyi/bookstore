@@ -21,7 +21,7 @@
             <fieldset class="form-group">
                 <form:label path="genre">Genre: </form:label>
                 <form:select path="genre" cssClass="form-control">
-                    <form:option value="-">---</form:option>
+                    <form:option value="">---</form:option>
                     <form:options items="${genres}"/>
                 </form:select>
             </fieldset>

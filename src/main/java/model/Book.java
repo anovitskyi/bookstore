@@ -63,8 +63,20 @@ public class Book
 
     public void setAutor(String autor)
     {
-        String str = autor.trim();
-        this.autor = str.substring(0,1).toUpperCase() + str.substring(1);
+        String[] str = autor.trim().toLowerCase().split(" ");
+        String name = str[0];
+        String surname = " ";
+        try
+        {
+            surname = str[1] == null ? str[1] : "   ";
+        }
+        catch (Exception e)
+        {
+            surname = "    ";
+        }
+
+        this.autor = name.substring(0,1).toUpperCase() + name.substring(1) + " " + surname.substring(0,1).toUpperCase() + surname.substring(1);
+        this.autor = this.autor.trim();
     }
 
     public String getName()
