@@ -39,5 +39,13 @@
         } }, 3000);
     });
 </script>
+<script>
+    $(function() {
+        $('#inputWithoutSpaces').on('keypress', function(e) {
+            if (e.which == 32)
+                return false;
+        });
+    });
+</script>
 </body>
 </html>

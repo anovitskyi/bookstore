@@ -4,10 +4,7 @@ package model;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 @Entity
@@ -15,8 +12,9 @@ import javax.validation.constraints.Min;
 public class Adress
 {
     @Id
-    @Column(name = "adress_id")
-    private Integer id;
+    @Column
+    @GeneratedValue
+    private Integer adress_id;
 
     @Column
     @NotBlank

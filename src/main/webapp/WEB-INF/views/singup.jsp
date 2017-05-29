@@ -37,13 +37,13 @@
 
             <fieldset class="form-group">
                 <form:label path="email">Email:</form:label>
-                <form:input path="email" cssClass="form-control" type="email" required="required"/>
+                <form:input path="email" id="inputWithoutSpaces" cssClass="form-control" type="email" required="required"/>
                 <form:errors path="email" cssClass="text-danger"/>
             </fieldset>
 
             <fieldset class="form-group">
                 <form:label path="username">Username:</form:label>
-                <form:input path="username" cssClass="form-control" type="text" required="required"/>
+                <form:input path="username" id="inputWithoutSpaces" cssClass="form-control" type="text" required="required"/>
                 <form:errors path="username" cssClass="text-danger"/>
             </fieldset>
 
@@ -66,6 +66,7 @@
             <fieldset class="form-group">
                 <form:label path="adress.country">Country:</form:label>
                 <form:select path="adress.country" cssClass="form-control">
+                    <form:option value="">---</form:option>
                     <form:options items="${countries}"/>
                 </form:select>
                 <form:errors path="adress.country" cssClass="text-danger"/>

@@ -8,8 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import service.CommonService;
+import service.BookService;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import java.util.List;
 public class HomePageController
 {
     @Autowired
-    CommonService<Book> service;
+    private BookService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage()

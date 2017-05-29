@@ -14,6 +14,7 @@ public class Consumer
 {
     @Id
     @Column(name = "consumer_id")
+    @GeneratedValue
     private Integer id;
 
     @Column(name = "first_name")
@@ -36,20 +37,31 @@ public class Consumer
 
     @Column
     @NotBlank
-    @Length(min = 3, max = 30)
+    @Length(min = 5)
     private String username;
 
     @Column
     @NotBlank
-    @Length(min = 3, max = 30)
+    @Length(min = 8)
     private String password;
 
-    @Valid
-    @Column
-    @OneToOne(cascade = CascadeType.ALL)
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "adress_id")
     private Adress adress;
 
+    @Column(name = "is_enabled")
+    private boolean isEnabled;
+
+    public boolean isEnabled()
+    {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled)
+    {
+        isEnabled = enabled;
+    }
 
     public String getFirstName()
     {

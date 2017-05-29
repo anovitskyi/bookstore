@@ -1,21 +1,20 @@
 package service.impl;
 
 
-import dao.CommonDao;
+import dao.BookDao;
 import model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import service.CommonService;
+import service.BookService;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 @Service
-public class BookServiceImpl implements CommonService<Book>
+public class BookServiceImpl implements BookService
 {
     @Autowired
-    private CommonDao<Book> dao;
+    private BookDao dao;
 
     public List<Book> getAll()
     {

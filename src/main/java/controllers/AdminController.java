@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-import service.CommonService;
+import service.BookService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -23,7 +23,7 @@ import java.util.Arrays;
 public class AdminController
 {
     @Autowired
-    private CommonService<Book> service;
+    private BookService service;
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

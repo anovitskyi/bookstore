@@ -1,48 +1,29 @@
 package service.impl;
 
 
-import dao.CommonDao;
+import dao.ConsumerDao;
+import model.Consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import model.Consumer;
-import service.CommonService;
+import service.ConsumerService;
 
 import java.util.List;
 
 @Service
-public class ConsumerServiceImpl implements CommonService<Consumer>
+public class ConsumerServiceImpl implements ConsumerService
 {
     @Autowired
-    private CommonDao<Consumer> dao;
+    private ConsumerDao dao;
 
     @Override
-    public List<Consumer> getAll()
+    public Consumer getByEmail(String email)
     {
-        return dao.getAll();
+        return dao.getByEmail(email);
     }
 
     @Override
-    public Consumer get(int id)
+    public void add(Consumer consumer)
     {
-        return dao.get(id);
-    }
-
-    @Override
-    public void add(Consumer param)
-    {
-        dao.add(param);
-    }
-
-    @Override
-    public void update(Consumer param)
-    {
-        dao.update(param);
-    }
-
-    @Override
-    public void delete(Consumer param)
-    {
-        dao.delete(param);
+        dao.add(consumer);
     }
 }

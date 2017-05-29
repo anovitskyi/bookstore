@@ -1,26 +1,29 @@
 package dao.impl;
 
-import dao.DaoImpl;
-
-import model.Consumer;
+import dao.ConsumerDao;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.List;
+import model.Consumer;
 
 @Repository
 @Transactional
-public class ConsumerDaoImpl extends DaoImpl<Consumer>
+public class ConsumerDaoImpl implements ConsumerDao
 {
+    @Autowired
+    protected SessionFactory session;
+
     @Override
-    public List<Consumer> getAll()
+    public Consumer getByEmail(String email)
     {
-        return session.getCurrentSession().createQuery("from model.Consumer").list();
+        return (Consumer) session.getCurrentSession().createQuery("from model.Consumer where email = ?");
     }
 
     @Override
-    public Consumer get(int id)
+    public void add(Consumer consumer)
     {
-        return (Consumer) session.getCurrentSession().get(Consumer.class, id);
+        session.getCurrentSession().save(consumer);
     }
 }

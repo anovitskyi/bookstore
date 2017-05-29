@@ -13,7 +13,7 @@
 
             <fieldset class="form-group">
                 <label for="username" >Username: </label>
-                <input class="form-control" type="text" id="username" name="username"/>
+                <input class="form-control" id="inputWithoutSpaces" type="text" id="username" name="username"/>
             </fieldset>
             <fieldset class="form-group">
                 <label for="password">Password: </label>

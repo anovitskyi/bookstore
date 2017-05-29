@@ -1,9 +1,8 @@
 package controllers;
 
 
-import model.Adress;
-import model.Consumer;
-import model.Countries;
+import model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,10 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Arrays;
+import java.util.List;
+import model.Consumer;
+import service.ConsumerService;
 
 @Controller
 public class LoginController
 {
+    @Autowired
+    private ConsumerService consumerService;
+
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(required = false) String error, Model model, HttpServletRequest request)
     {
@@ -76,8 +82,14 @@ public class LoginController
             result.rejectValue("password", "error.object","Different passwords provided");
             return "singup";
         }
-        //contactService.add(consumer);
-        return "redirect:/login";
+        model.asMap().clear();
+
+        consumer.setEnabled(true);
+        consumerService.add(consumer);
+
+
+        model.addAttribute("message","You have been succssesfully singed up!");
+        return "redirection";
     }
 
     @RequestMapping(value = "/denied", method = RequestMethod.GET)
