@@ -4,6 +4,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "cart_items")
 public class CartItem
 {
     @Id
@@ -18,7 +19,7 @@ public class CartItem
     @Column
     private int quantity;
 
-    @Column
+    @Column(name = "total_price")
     private double totalPrice;
 
     @ManyToOne

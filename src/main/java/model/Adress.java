@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.util.List;
 
 @Entity
 @Table(name = "adresses")
@@ -37,12 +38,23 @@ public class Adress
 
     @Column(name = "post_code")
     @NotBlank
-    @Length(min = 2, max = 6)
+    @Length(min = 2, max = 8)
     private String postCode;
 
-    @ManyToOne
-    @JoinColumn(name = "cunsumer_id")
-    private Consumer consumer;
+    @OneToMany
+    @JoinColumn(name = "consumer_id")
+    private List<Consumer> list;
+
+
+    public List<Consumer> getList()
+    {
+        return list;
+    }
+
+    public void setList(List<Consumer> list)
+    {
+        this.list = list;
+    }
 
     public String getCountry()
     {

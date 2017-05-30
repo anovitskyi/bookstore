@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Entity
@@ -29,6 +30,7 @@ public class Consumer
 
     @Column
     @Min(0)
+    @Max(120)
     private Integer age;
 
     @Column
@@ -37,7 +39,7 @@ public class Consumer
 
     @Column
     @NotBlank
-    @Length(min = 5)
+    @Length(min = 5, max = 30)
     private String username;
 
     @Column
@@ -57,9 +59,20 @@ public class Consumer
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    @OneToOne
-    @JoinColumn(name = "consumer_order_id")
+    public Integer getId()
+    {
+        return id;
+    }
 
+    public Cart getCart()
+    {
+        return cart;
+    }
+
+    public void setCart(Cart cart)
+    {
+        this.cart = cart;
+    }
 
     public boolean isEnabled()
     {

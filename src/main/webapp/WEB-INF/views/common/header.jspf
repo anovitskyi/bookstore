@@ -37,7 +37,7 @@
                         <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
                             <li class="active"><a href="/admin">Manage</a></li>
                         </c:if>
-                        <li><a href="#" style="text-transform: capitalize">${fn:toLowerCase(pageContext.request.userPrincipal.name)}</a></li>
+                        <li><a href="#">${fn:toLowerCase(pageContext.request.userPrincipal.name)}</a></li>
                         <li onclick="myform.submit()"><a>Logout</a></li>
                         <li>
                             <form name="myform" action="/j_spring_security_logout" method="post">

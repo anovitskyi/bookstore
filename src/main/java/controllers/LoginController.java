@@ -38,6 +38,7 @@ public class LoginController
             return "login";
         }
 
+
         model.addAttribute("message", "Welcome");
         return "login";
     }
@@ -81,12 +82,33 @@ public class LoginController
             result.rejectValue("password", "error.object","Different passwords provided");
             return "singup";
         }
+        Consumer c = consumerService.getByEmail(consumer.getEmail());
+        if (c != null)
+        {
+            model.addAttribute("countries", Arrays.asList(Countries.values()));
+            consumer.setPassword("");
+            consumer.setUsername("");
+            model.addAttribute(consumer);
+            result.rejectValue("email", "error.object","Email already exists");
+            return "singup";
+        }
+
+        c = consumerService.getByUsername(consumer.getUsername());
+
+        if (c != null)
+        {
+            model.addAttribute("countries", Arrays.asList(Countries.values()));
+            consumer.setPassword("");
+            consumer.setUsername("");
+            model.addAttribute(consumer);
+            result.rejectValue("username", "error.object","Username already exists");
+            return "singup";
+        }
+
         model.asMap().clear();
 
         consumer.setEnabled(true);
         consumerService.add(consumer);
-
-
         model.addAttribute("message","You have been succssesfully singed up!");
         return "redirection";
     }

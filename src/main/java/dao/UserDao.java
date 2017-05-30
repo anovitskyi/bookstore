@@ -1,0 +1,10 @@
+package dao;
+
+
+import model.Authority;
+import model.User;
+
+public interface UserDao
+{
+    void addUser(User user);
+}

@@ -4,6 +4,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "consumer_orders")
 public class ConsumerOrder
 {
     @Id
