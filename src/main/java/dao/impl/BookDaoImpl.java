@@ -15,7 +15,7 @@ public class BookDaoImpl implements BookDao
 {
 
     @Autowired
-    protected SessionFactory session;
+    private SessionFactory session;
 
     @Override
     public void add(Book book)

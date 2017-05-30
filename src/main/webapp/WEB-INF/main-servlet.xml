@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:security="http://www.springframework.org/schema/security" xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -46,10 +46,9 @@
 
     <security:authentication-manager>
         <security:authentication-provider>
-
             <security:jdbc-user-service data-source-ref="dataSource"
-                authorities-by-username-query="SELECT "
-            />
+                                        authorities-by-username-query="SELECT username, authority From authorities WHERE username = ?"
+                                        users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?" />
         </security:authentication-provider>
     </security:authentication-manager>
 </beans>

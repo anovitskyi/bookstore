@@ -13,7 +13,7 @@ import model.Consumer;
 public class ConsumerDaoImpl implements ConsumerDao
 {
     @Autowired
-    protected SessionFactory session;
+    private SessionFactory session;
 
     @Override
     public Consumer getByEmail(String email)

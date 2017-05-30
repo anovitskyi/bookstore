@@ -40,6 +40,10 @@ public class Adress
     @Length(min = 2, max = 6)
     private String postCode;
 
+    @ManyToOne
+    @JoinColumn(name = "cunsumer_id")
+    private Consumer consumer;
+
     public String getCountry()
     {
         return country;

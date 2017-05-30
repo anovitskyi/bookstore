@@ -53,6 +53,14 @@ public class Consumer
     @Column(name = "is_enabled")
     private boolean isEnabled;
 
+    @OneToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
+    @OneToOne
+    @JoinColumn(name = "consumer_order_id")
+
+
     public boolean isEnabled()
     {
         return isEnabled;

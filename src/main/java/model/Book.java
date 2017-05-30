@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -17,7 +18,7 @@ public class Book
     @Column(name = "book_id")
     private Integer id;
 
-    @Column
+    @Column(name = "author")
     @NotBlank
     @Length(min = 3, max = 35)
     private String autor;
@@ -44,6 +45,9 @@ public class Book
 
     @Transient
     private MultipartFile img;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CartItem> list;
 
     public String getAutor()
     {
