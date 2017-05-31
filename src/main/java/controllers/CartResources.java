@@ -51,6 +51,7 @@ public class CartResources
         Consumer consumer = consumerService.getByUsername(activeUser.getUsername());
         Cart cart = consumer.getCart();
         Book book = bookService.get(bookId);
+        book.setUnitsInStock(book.getUnitsInStock() - 1);
         List<CartItem> list = cart.getList();
         for (CartItem item : list)
         {
@@ -59,11 +60,13 @@ public class CartResources
                 item.setQuantity(item.getQuantity() + 1);
                 item.setTotalPrice(item.getTotalPrice() + book.getPrice());
                 cartItemService.add(item);
+                bookService.update(book);
                 return;
             }
         }
         CartItem item = new CartItem(book, 1, book.getPrice(), cart);
         cartItemService.add(item);
+        bookService.update(book);
     }
 
     @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.PUT)
@@ -71,16 +74,12 @@ public class CartResources
     public void deleteBook(@PathVariable int bookId)
     {
         CartItem item = cartItemService.findByBookId(bookId);
+        Book book = bookService.get(bookId);
+        book.setUnitsInStock(book.getUnitsInStock() + item.getQuantity());
+        bookService.update(book);
         cartItemService.delete(item);
     }
 
-
-    @RequestMapping(value = "/{cardId}", method = RequestMethod.DELETE)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void deleteCart(@PathVariable int cartId)
-    {
-        cartItemService.removeAll(cartService.getCartById(cartId));
-    }
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload.")

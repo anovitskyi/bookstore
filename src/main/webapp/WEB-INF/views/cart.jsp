@@ -40,9 +40,13 @@
                 </table>
             </div>
             <div>
-                <a class="btn btn-danger pull-left" ng-click="clearCart()">Clear Cart</a>
-                <a href="<spring:url value="/order/${cartId}"/>"
-                   class="btn btn-success pull-right">Check out</a>
+                <div class="col-md-2 pull-right">
+                    <a href="<spring:url value="/order/${cartId}"/>"
+                       class="btn btn-success">Check out</a>
+                </div>
+                <div class="col-md-1 pull-right">
+                    <a href="/books/" class="btn btn-default pull-right">Go to all books</a>
+                </div>
             </div>
         </div>
 
