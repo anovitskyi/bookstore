@@ -30,7 +30,7 @@
                 <c:choose>
                     <c:when test="${book.unitsInStock > 0}">
                         <h3>Price: &#36;${book.price}</h3>
-                        <a class="btn btn-success" href="/books/${book.id}">Buy</a>
+                        <a class="btn btn-success" href="/books/${book.id}">View</a>
                     </c:when>
                     <c:otherwise>
                         <h3>No more books left</h3>

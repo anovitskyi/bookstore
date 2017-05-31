@@ -1,6 +1,8 @@
 package model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,10 +20,21 @@ public class Cart
 
     @OneToOne
     @JoinColumn(name = "consumer_id")
+    @JsonIgnore
     private Consumer consumer;
 
-    @Column(name = "grant_total")
-    private double grantTotal;
+    @Column(name = "grand_total")
+    private double grandTotal;
+
+    public Integer getId()
+    {
+        return id;
+    }
+
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
 
     public List<CartItem> getList()
     {
@@ -43,13 +56,13 @@ public class Cart
         this.consumer = consumer;
     }
 
-    public double getGrantTotal()
+    public double getGrandTotal()
     {
-        return grantTotal;
+        return grandTotal;
     }
 
-    public void setGrantTotal(double grantTotal)
+    public void setGrandTotal(double grandTotal)
     {
-        this.grantTotal = grantTotal;
+        this.grandTotal = grandTotal;
     }
 }

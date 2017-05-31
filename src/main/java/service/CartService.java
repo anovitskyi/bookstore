@@ -1,11 +1,10 @@
-package dao;
-
+package service;
 
 import model.Cart;
 
 import java.io.IOException;
 
-public interface CartDao
+public interface CartService
 {
     void add(Cart cart);
 

@@ -7,11 +7,10 @@
 </div>
 
 <div class="row">
-   <form:form action="/books/${book.id}" method="post">
        <div class="col-md-3">
            <img src="/resources/books/${book.id}.png" onerror="this.src='/resources/books/default.png'" alt="Book: ${book.name}" width="250" height="250"/>
        </div>
-       <div class="col-md-8">
+       <div class="col-md-8" ng-app="cartApp" ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
           <ul style="list-style-type: none;">
               <li> <h3>${book.name}</h3> </li>
               <li> <h4>${book.autor}</h4> </li>
@@ -27,11 +26,14 @@
                   </c:choose>
               </li>
               <li><h3>&#36;${book.price}</h3></li>
-              <li> <input type="submit" value="Confirm" class="btn btn-success">
+              <li>
+                  <a href="#" class="btn btn-warning btn-large"
+                     ng-click="addToCart('${book.id}')">Add to cart</a>
                   <a href="/books/" class="btn btn-default">Go to all books</a>
               </li>
           </ul>
        </div>
-   </form:form>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="/resources/js/controller.js"></script>
 <%@include file="/WEB-INF/views/common/footer.jspf"%>

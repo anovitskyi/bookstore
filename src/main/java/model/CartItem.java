@@ -1,6 +1,8 @@
 package model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,7 +26,19 @@ public class CartItem
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
+    @JsonIgnore
     private Cart cart;
+
+
+    public CartItem(){}
+
+    public CartItem(Book book, int quantity, double totalPrice, Cart cart)
+    {
+        this.book = book;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.cart = cart;
+    }
 
     public Book getBook()
     {

@@ -66,7 +66,7 @@ public class Book
 
     public void setAutor(String autor)
     {
-        String str = autor.trim().toLowerCase();
+        String str = autor.trim();
         if (!str.isEmpty())
             this.autor = str.substring(0,1).toUpperCase() + str.substring(1);
         else

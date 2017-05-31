@@ -2,15 +2,20 @@ package controllers;
 
 import model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import service.BookService;
+import service.CartService;
+import service.ConsumerService;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.Consumer;
 
 @Controller
 @RequestMapping(value = "/books")
@@ -19,6 +24,9 @@ public class BookController
 
     @Autowired
     private BookService service;
+
+    @Autowired
+    private ConsumerService consumerService;
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -64,7 +72,7 @@ public class BookController
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String buy(@PathVariable int id, Model model)
+    public String view(@PathVariable int id, Model model, @AuthenticationPrincipal User user)
     {
         Book book = service.get(id);
         if (book == null || book.getUnitsInStock() < 1)
@@ -73,12 +81,8 @@ public class BookController
             return "redirection";
         }
         model.addAttribute(book);
+        Consumer consumer = consumerService.getByUsername(user.getUsername());
+        model.addAttribute("cartId", consumer.getCart().getId());
         return "buy";
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    public String makePurchase(@PathVariable int id, Model model)
-    {
-       throw new UnsupportedOperationException("NOT IMPLEMENTED METHOD");
     }
 }

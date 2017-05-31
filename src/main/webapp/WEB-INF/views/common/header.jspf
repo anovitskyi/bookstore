@@ -36,11 +36,8 @@
                     <c:when test="${pageContext.request.userPrincipal.name != null}">
                         <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
                             <li class="active"><a href="/admin">Manage</a></li>
-                            <li><a href="#">${fn:toLowerCase(pageContext.request.userPrincipal.name)}</a></li>
                         </c:if>
-                        <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                            <li class="active"><a href="/consumer/cart">${fn:toLowerCase(pageContext.request.userPrincipal.name)}</a></li>
-                        </c:if>
+                        <li class="active"><a href="/consumer/cart">Your cart</a></li>
                         <li onclick="myform.submit()"><a>Logout</a></li>
                         <li>
                             <form name="myform" action="/j_spring_security_logout" method="post">

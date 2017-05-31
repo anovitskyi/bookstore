@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+
 @Repository
 @Transactional
 public class CartDaoImpl implements CartDao
@@ -20,5 +22,22 @@ public class CartDaoImpl implements CartDao
     public void add(Cart cart)
     {
         session.getCurrentSession().saveOrUpdate(cart);
+    }
+
+    @Override
+    public Cart getCartById(int id)
+    {
+        return (Cart) session.getCurrentSession().get(Cart.class, id);
+    }
+
+    @Override
+    public void update(Cart cart)
+    {
+        /*int cartId = cart.getId();
+        double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
+        cart.setGrandTotal(grandTotal);
+
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(cart);*/
     }
 }
