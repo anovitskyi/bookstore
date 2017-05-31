@@ -11,5 +11,4 @@ public interface CartDao
 
     Cart getCartById (int id);
 
-    void update(Cart cart);
 }

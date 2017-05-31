@@ -30,14 +30,4 @@ public class CartDaoImpl implements CartDao
         return (Cart) session.getCurrentSession().get(Cart.class, id);
     }
 
-    @Override
-    public void update(Cart cart)
-    {
-        /*int cartId = cart.getId();
-        double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
-        cart.setGrandTotal(grandTotal);
-
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(cart);*/
-    }
 }

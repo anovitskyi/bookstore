@@ -10,5 +10,4 @@ public interface CartService
 
     Cart getCartById (int id);
 
-    void update(Cart cart);
 }

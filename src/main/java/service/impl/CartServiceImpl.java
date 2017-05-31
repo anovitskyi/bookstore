@@ -25,10 +25,4 @@ public class CartServiceImpl implements CartService
     {
         return cartDao.getCartById(id);
     }
-
-    @Override
-    public void update(Cart cart)
-    {
-        cartDao.update(cart);
-    }
 }
