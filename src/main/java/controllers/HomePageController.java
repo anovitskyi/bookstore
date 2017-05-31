@@ -3,6 +3,7 @@ package controllers;
 import model.Book;
 import model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,7 @@ public class HomePageController
 {
     @Autowired
     private BookService service;
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String homePage()
