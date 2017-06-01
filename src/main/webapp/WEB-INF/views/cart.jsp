@@ -5,9 +5,16 @@
     <div class="container">
 
         <div class="page-header">
-            <h1>Your shopping cart</h1>
+            <c:choose>
+                <c:when test="${error == null}">
+                    <h1>Your shopping cart</h1>
 
-            <h4>All the selected books in your shopping cart</h4>
+                    <h4>All the selected books in your shopping cart</h4>
+                </c:when>
+                <c:otherwise>
+                    <h1 style="color: #ff463f;">${error}</h1>
+                </c:otherwise>
+            </c:choose>
         </div>
 
         <div class="container" ng-app="cartApp">
@@ -41,7 +48,7 @@
             </div>
             <div>
                 <div class="col-md-2 pull-right">
-                    <a href="<spring:url value="/order/${cartId}"/>"
+                    <a href="/order/"
                        class="btn btn-success">Check out</a>
                 </div>
                 <div class="col-md-1 pull-right">

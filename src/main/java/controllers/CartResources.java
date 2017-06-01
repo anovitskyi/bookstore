@@ -1,18 +1,15 @@
 package controllers;
 
-import dao.CartDao;
 import model.Book;
 import model.Cart;
 import model.CartItem;
+import model.Consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import model.Consumer;
 import service.BookService;
 import service.CartItemService;
 import service.CartService;
@@ -51,7 +48,6 @@ public class CartResources
         Consumer consumer = consumerService.getByUsername(activeUser.getUsername());
         Cart cart = consumer.getCart();
         Book book = bookService.get(bookId);
-        book.setUnitsInStock(book.getUnitsInStock() - 1);
         List<CartItem> list = cart.getList();
         for (CartItem item : list)
         {
@@ -60,13 +56,11 @@ public class CartResources
                 item.setQuantity(item.getQuantity() + 1);
                 item.setTotalPrice(item.getTotalPrice() + book.getPrice());
                 cartItemService.add(item);
-                bookService.update(book);
                 return;
             }
         }
         CartItem item = new CartItem(book, 1, book.getPrice(), cart);
         cartItemService.add(item);
-        bookService.update(book);
     }
 
     @RequestMapping(value = "/delete/{bookId}", method = RequestMethod.PUT)
@@ -74,10 +68,8 @@ public class CartResources
     public void deleteBook(@PathVariable int bookId)
     {
         CartItem item = cartItemService.findByBookId(bookId);
-        Book book = bookService.get(bookId);
-        book.setUnitsInStock(book.getUnitsInStock() + item.getQuantity());
-        bookService.update(book);
         cartItemService.delete(item);
+
     }
 
 

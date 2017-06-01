@@ -1,7 +1,6 @@
 package dao;
 
 
-import model.Authority;
 import model.User;
 
 public interface UserDao

@@ -15,13 +15,13 @@
 
             <fieldset class="form-group">
                 <form:label path="firstName">First name:</form:label>
-                <form:input path="firstName" cssClass="form-control" type="text" required="required"/>
+                <form:input path="firstName" cssClass="form-control inputWithoutSpaces" type="text" required="required"/>
                 <form:errors path="firstName" cssClass="text-danger"/>
             </fieldset>
 
             <fieldset class="form-group">
                 <form:label path="lastName">Last name:</form:label>
-                <form:input path="lastName" cssClass="form-control" type="text" required="required"/>
+                <form:input path="lastName" cssClass="form-control inputWithoutSpaces" type="text" required="required"/>
                 <form:errors path="lastName" cssClass="text-danger"/>
             </fieldset>
 
@@ -37,13 +37,13 @@
 
             <fieldset class="form-group">
                 <form:label path="email">Email:</form:label>
-                <form:input path="email" id="inputWithoutSpaces" cssClass="form-control" type="email" required="required"/>
+                <form:input path="email" cssClass="form-control inputWithoutSpaces" type="email" required="required"/>
                 <form:errors path="email" cssClass="text-danger"/>
             </fieldset>
 
             <fieldset class="form-group">
                 <form:label path="username">Username:</form:label>
-                <form:input path="username" id="inputWithoutSpaces" cssClass="form-control" type="text" required="required"/>
+                <form:input path="username" cssClass="form-control inputWithoutSpaces" type="text" required="required"/>
                 <form:errors path="username" cssClass="text-danger"/>
             </fieldset>
 
@@ -92,7 +92,7 @@
 
             <fieldset class="form-group">
                 <form:label path="adress.postCode">Postal code:</form:label>
-                <form:input path="adress.postCode" cssClass="form-control" type="text" required="required"/>
+                <form:input path="adress.postCode" cssClass="form-control inputWithoutSpaces" type="text" required="required"/>
                 <form:errors path="adress.postCode" cssClass="text-danger"/>
             </fieldset>
 

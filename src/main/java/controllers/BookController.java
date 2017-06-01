@@ -1,6 +1,7 @@
 package controllers;
 
 import model.Book;
+import model.Consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
@@ -10,12 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import service.BookService;
-import service.CartService;
 import service.ConsumerService;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Consumer;
 
 @Controller
 @RequestMapping(value = "/books")

@@ -1,13 +1,12 @@
 package dao.impl;
 
 import dao.ConsumerDao;
+import model.Consumer;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import model.Consumer;
-
 import java.util.List;
 
 @Repository

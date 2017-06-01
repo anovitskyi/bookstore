@@ -2,8 +2,6 @@ package service;
 
 import model.Cart;
 
-import java.io.IOException;
-
 public interface CartService
 {
     void add(Cart cart);

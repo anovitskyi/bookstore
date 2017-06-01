@@ -33,7 +33,6 @@
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Very simple way to order</h1>
-                    <p>Ordering textbooks and other materials is easy. Be sure to make a hard copy (printout) of your course material from your course Syllabus and take it with you when you go to the bookstore so you know for sure what you need to order.</p>
                 </div>
             </div>
         </div>
@@ -68,12 +67,6 @@
         </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <br>
-        <p>&copy; <%=new java.util.GregorianCalendar().getWeekYear()%> Andrii Novitskyi &middot;</p>
-    </footer>
-
 </div><!-- /.container -->
 
 
@@ -83,14 +76,6 @@
 <script src="/resources/js/jquery-1.11.3.min.js"></script>
 <script>window.jQuery || document.write('<script src="/resources/js/jquery-1.11.3.min.js"><\/script>')</script>
 <script src="/resources/js/bootstrap.min.js"></script>
-<script>
-    $(function() {
-        $('#inputWithoutSpaces').on('keypress', function(e) {
-            if (e.which == 32)
-                return false;
-        });
-    });
-</script>
 <script>
 
     $(document).ready(function() {

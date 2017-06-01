@@ -1,6 +1,7 @@
 package controllers;
 
 import model.Book;
+import model.ConsumerOrder;
 import model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import service.BookService;
+import service.ConsumerService;
+import service.OrderService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
+import model.Consumer;
 
 @Controller
 @RequestMapping("/admin")
@@ -25,6 +30,11 @@ public class AdminController
     @Autowired
     private BookService service;
 
+    @Autowired
+    private OrderService orderService;
+
+    @Autowired
+    private ConsumerService consumerService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String adminPage(Model model)
@@ -127,5 +137,23 @@ public class AdminController
         if (file.exists())
             file.delete();
         return "redirect:/admin/";
+    }
+
+    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    public String getAllOrders(Model model)
+    {
+        List<ConsumerOrder> list = orderService.getAll();
+        model.addAttribute("list", list);
+
+        return "orderList";
+    }
+
+    @RequestMapping(value = "/consumers", method = RequestMethod.GET)
+    public String getAllConsumers(Model model)
+    {
+        List<Consumer> list = consumerService.getAll();
+        model.addAttribute("list", list);
+
+        return "consumerList";
     }
 }

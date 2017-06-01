@@ -5,15 +5,14 @@
     <h1>Admin page:</h1>
 </div>
 <div class="container">
-    <div class="btn-group" style="float: right;">
-        <div class="col-md-5">
-            <a href="/admin/books/add" class="btn btn-primary">Add book</a>
-        </div>
-
-        <div class="col-md-4">
-            <a href="/books/" class="btn btn-primary">Show all</a>
-        </div>
-    </div>
+    <table style="float: right;">
+        <tr>
+            <td style="padding: 5px;"><a href="/admin/books/add" class="btn btn-primary">Add book</a></td>
+            <td style="padding: 5px;"><a href="/books/" class="btn btn-primary">Show books</a></td>
+            <td style="padding: 5px;"><a href="/admin/consumers" class="btn btn-primary">Show consumers</a></td>
+            <td style="padding: 5px;"> <a href="/admin/orders" class="btn btn-primary">Show orders</a></td>
+        </tr>
+    </table>
     <br>
     <table class="table table-striped">
         <thead>

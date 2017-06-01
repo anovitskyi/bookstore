@@ -1,13 +1,9 @@
 
-<!-- FOOTER -->
-<footer class="footer">
-    <br>
-    <p>&copy; <%=new java.util.GregorianCalendar().getWeekYear()%> Andrii Novitskyi &middot;</p>
-</footer>
-
 </div><!-- /.container -->
 
-
+<footer class="footer">
+    <br>
+</footer>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -16,7 +12,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 <script>
     $(function() {
-        $('#inputWithoutSpaces').on('keypress', function(e) {
+        $('.inputWithoutSpaces').on('keypress', function(e) {
             if (e.which == 32)
                 return false;
         });

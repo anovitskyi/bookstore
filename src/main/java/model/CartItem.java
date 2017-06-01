@@ -79,4 +79,9 @@ public class CartItem
     {
         this.cart = cart;
     }
+
+    public Integer getId()
+    {
+        return id;
+    }
 }
